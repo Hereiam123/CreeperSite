@@ -1,3 +1,28 @@
+<?php
+
+
+
+function tag_cloud($tags){
+	$maxsize=35;
+	$minsize=10;
+	
+	$maxval=max(array_values($tags));
+	$minval=min(array_values($tags));
+	
+	$spread= ($maxval - $minval);
+	
+	$step= (($maxsize - $minsize) / $spread);
+	
+	foreach($tags as $key => $value){
+		$size=round($minsize +(($value - $minval) * $step));
+		echo '<a href="#" style="font-size: '.$size.'px;">'.$key.'</a> ';
+	}
+}
+
+$tags=array('Married'=>3,'Crazy'=>1,'Liar'=>3,'Douchey'=>6,'Weird Fetish'=>2,'Jealous'=>8,'Possessive'=>2,'Control Freak'=>1,'Late'=>3,'Vain'=>8,'Smelly'=>4,'Psycho'=>1,'Bossy'=>3,'Cheap'=>6,'Snob'=>2,'Clingy'=>1,'Boring'=>2);
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -5,10 +30,8 @@
 <link rel="stylesheet" type="text/css" href="css/960.css" />
 <link rel="stylesheet" type="text/css" href="css/text.css" />
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
-<link href='http://fonts.googleapis.com/css?family=Questrial|Cardo:400,700,400italic' rel='stylesheet' type='text/css'>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/search.js"></script>
-
+<link href='http://fonts.googleapis.com/css?family=Questrial|Marko+One' rel='stylesheet' type='text/css'/>
+  
 <script language="JavaScript" type="text/javascript">
   function login(showhide){
     if(showhide == "show"){
@@ -17,8 +40,20 @@
         document.getElementById('popupbox').style.visibility="hidden"; 
     }
   }
-  </script>
   
+  function register(showhide){
+    if(showhide == "show"){
+        document.getElementById('popupbox2').style.visibility="visible";
+    }else if(showhide == "hide"){
+        document.getElementById('popupbox2').style.visibility="hidden"; 
+    }
+  }
+  
+</script>   
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/search.js"></script>
+<script type="text/javascript" src="js/returnTags.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Creeperstash</title>
 </head>
@@ -33,7 +68,7 @@
         
         	<div id="logo">
         
-    			<h1><img src="img/logo_new3a.png" /></h1>
+    			<h1><a href="main.php"><img src="img/logo_new3a.png" alt="creeperstash"/></a></h1>
     			
             </div>
         
@@ -43,7 +78,7 @@
         
         	<div id="topbuttons">
             
-            <a class="button" href="javascript:login('show');">Login</a> <a class="button" href="javascript:login('show');">Sign Up</a>
+            <a class="button" href="javascript:login('show');">Login</a> <a class="button" href="javascript:register('show');">Sign Up</a>
             
             </div>
                             
@@ -57,14 +92,17 @@
 <div class="container_12">
 	<div class="grid_12">
 		<div id="popupbox"> 
-        	<p class="centerclose"><a href="javascript:login('hide');"><img src="img/close.png" /></a></p>
+        	<p class="centerclose"><a href="javascript:login('hide');"><img src="img/close.png" alt="close"/></a></p>
 			<form name="login" action="loggedin.php" method="post">
             	<fieldset>
                 <legend>
-				<label for="username">Username:</label><input name="username" size="14" />
+				<label for="username">Username:</label><br />
+                <input name="username" size="14" />
                 <br />
-				<label for="password">Password:</label><input name="password" type="password" size="14" />
+				<label for="password">Password:</label>
                 <br />
+                <input name="password" type="password" size="14" />
+                <br /><br />
 				<input type="submit" name="submit" value="Login" class="submit"/>
                 </legend>
                 </fieldset>                
@@ -76,21 +114,27 @@
 
 <div class="container_12">
 	<div class="grid_12">
-		<div id="popupbox"> 
-        	<p class="centerclose"><a href="javascript:login('hide');"><img src="img/close.png" /></a></p>
-			<form name="login" action="loggedin.php" method="post">
+		<div id="popupbox2"> 
+        	<p class="centerclose"><a href="javascript:register('hide');"><img src="img/close.png" alt="close" /></a></p>
+			<form name="register" action="register.php" method="post">
             	<fieldset>
                 <legend>
-				<label for="username">Username:</label><input name="username" size="14" />
+				<label for="username">Username:</label>
                 <br />
-				<label for="password">Password:</label><input name="password" type="password" size="14" />
+                <input name="username" size="14" />
                 <br />
-				<input type="submit" name="submit" value="Login" class="submit"/>
+				<label for="password1">Password:</label><br />
+                <input name="password1" type="password" size="14" />
+                <br />
+                <label for="password2">Re-enter Password:</label>
+                <br />
+                <input name="password2" type="password" size="14" />
+                <br /><br />
+				<input type="submit" name="register" value="Sign Up" class="submit"/>
                 </legend>
                 </fieldset>                
 			</form>
-			 
-			</div>             
+        </div>    
 	</div>
 </div>
 
@@ -115,13 +159,13 @@
         
         <div class="grid_6">
         
-        	<div id="search">
+        	<div id="searchArea">
         
-				<form onsubmit="return false">
+				<form onsubmit="return false" action="">
         
-    			<input type="text" name="search" id="Search"/>
+    			<input type="text" name="search" id="SearchBox"/>
         
-    			<input type="image" src="img/search1.png" alt="Submit" id="Submit"/>
+    			<input type="image" src="img/search.png" id="SubmitSearch"/>
         
     			</form>
     
@@ -134,46 +178,50 @@
 </div>
 
 <div class="container_12">
-	
-    <div class="grid_3">
 
-		<div id="leftnav">
+	<div class="grid_3">
+    
+    	<div id="leftnav">
         
-        <h3>Some Stuff</h3>
-        
-      
-        
-        
+        <h3>Welcome to CreeperStash!</h3>
+
+<p>Wonder if that cool guy you're checking out at okCupid or match.com is a total catch or an epic fail? Creeperstash is here to help you take the plunge or place that creep on ignore!
+Sign up for an account today and share your dating horror stories, and add your own Creepers to our stash!</p>
         
         </div>
-
-	</div>
+    
+    </div>	    
     
     <div class="grid_6">
     
 		<div id="main_content">
         
-        <h3>Latest Creeps</h3>
+        <h2>Latest Creeper Stories</h2>
+        
+        
         
         <h5>You're not going to believe this one!</h5>
         
         <h6>6/2/12</h6>
         
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis tellus non tortor sodales vitae pretium purus rutrum. Vestibulum adipiscing, mauris ac feugiat commodo, quam nisl tempor nisl, at lobortis leo nisi eu lorem. Nullam auctor, sem id egestas ullamcorper, dui ipsum dapibus felis, in consectetur nisl quam condimentum ipsum. Phasellus hendrerit placerat metus et aliquam. Etiam ante mi, adipiscing non porta ac, elementum non lectus... 
-        <a href="readmore.html">read more</a></p>
-        
-        
-        
-        
+        <a href="readmore.html" class="readmore">read more</a></p>
+                                
         <h5>Tickle Fetish Fiend</h5>
         
         <h6>6/1/12</h6>
         
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis tellus non tortor sodales vitae pretium purus rutrum. Vestibulum adipiscing, mauris ac feugiat commodo, quam nisl tempor nisl, at lobortis leo nisi eu lorem. Nullam auctor, sem id egestas ullamcorper, dui ipsum dapibus felis, in consectetur nisl quam condimentum ipsum. Phasellus hendrerit placerat metus et aliquam. Etiam ante mi, adipiscing non porta ac, elementum non lectus... 
-        <a href="readmore.html">read more</a></p>
+        <a href="readmore.html" class="readmore">read more</a></p>
         
         
+        <h5>Still keeps me up at night...</h5>
         
+        <h6>6/1/12</h6>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis tellus non tortor sodales vitae pretium purus rutrum. Vestibulum adipiscing, mauris ac feugiat commodo, quam nisl...
+        <a href="readmore.html" class="readmore">read more</a></p>
+                
         </div>
 	
     </div>
@@ -182,7 +230,9 @@
     
     	<div id="right_content">
     
-    		<h3>Tag Cloud Here</h3>
+    		<?php 
+				tag_cloud($tags);
+			?>
     
    	 		</div>
     

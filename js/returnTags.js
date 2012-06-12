@@ -1,16 +1,18 @@
 $(document).ready(function()
 {
-	$("#SubmitSearch").click(function()
+	$('#theResults').on('click',function()
 	{
-		var search = $("#SearchBox").val();
-		$.ajax({
+		//var user = $(this).attr("name");
+		alert("Clicked");
+		/*$.ajax({
 			type: 'GET',
 			url: 'search.php',
-			data: 'searchText=' + search + '&getTags=0',
+			data: 'userName=' + user + '&getTags=1',
 			dataType: 'html',
 			success: function(response) {
 				$('#main_content').html(response);
 			}
-		});
+		});*/	
 	});
-});
+	}
+);
