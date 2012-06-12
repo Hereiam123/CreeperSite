@@ -31,11 +31,13 @@ $tags=array('Married'=>3,'Crazy'=>1,'Liar'=>3,'Douchey'=>6,'Weird Fetish'=>2,'Je
 <link rel="stylesheet" type="text/css" href="css/text.css" />
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
 <link href='http://fonts.googleapis.com/css?family=Questrial|Marko+One' rel='stylesheet' type='text/css'/>
-  
+ 
+ 
 <script language="JavaScript" type="text/javascript">
   function login(showhide){
     if(showhide == "show"){
         document.getElementById('popupbox').style.visibility="visible";
+		document.getElementById('popupbox2').style.visibility="hidden"; 
     }else if(showhide == "hide"){
         document.getElementById('popupbox').style.visibility="hidden"; 
     }
@@ -44,6 +46,7 @@ $tags=array('Married'=>3,'Crazy'=>1,'Liar'=>3,'Douchey'=>6,'Weird Fetish'=>2,'Je
   function register(showhide){
     if(showhide == "show"){
         document.getElementById('popupbox2').style.visibility="visible";
+		document.getElementById('popupbox').style.visibility="hidden"; 
     }else if(showhide == "hide"){
         document.getElementById('popupbox2').style.visibility="hidden"; 
     }

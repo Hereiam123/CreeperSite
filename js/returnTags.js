@@ -1,7 +1,8 @@
 $(document).ready(function()
 {
-	$('#theResults').on('click',function()
+	$("a").click(function(event)
 	{
+		event.preventDefault();
 		//var user = $(this).attr("name");
 		alert("Clicked");
 		/*$.ajax({
@@ -14,5 +15,5 @@ $(document).ready(function()
 			}
 		});*/	
 	});
-	}
+}
 );

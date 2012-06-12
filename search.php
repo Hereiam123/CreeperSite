@@ -28,7 +28,7 @@ if($getTags==0)
 		print "<div id='theResults'>";
 		while($row2 = mysql_fetch_array($result))
 		{
-			print "<p id='".$row2['creepUserName']."'> User Name: ".$row2['creepUserName']."</p>";
+			print "<a name='".$row2['creepUserName']."' class='searchResult' href='#'> User Name: ".$row2['creepUserName']."</a><br/>";
 		}
 		print "</div>";
 	}
