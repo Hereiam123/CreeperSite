@@ -10,23 +10,11 @@ $readMoreNum=$_GET['readMoreNum'];
 
 if(!$readMoreNum)
 {
-	$readMoreNum=-1;
+	$readMoreNum=0;
 }
-
-$loggedOn=$_GET['loggedOn'];
-
-if($loggedOn==true)
-{
-	print "<a href='story.php?loggedOn=false'>Change Logged On status to False</a></br>";
-}
-else if($loggedOn==false)
-{
-	print "<a href='story.php?loggedOn=true'>Change Logged on status to True</a></br>";
-}
-
 
 $numStories=10;
-$currStoryNum=0;
+$currStoryNum=1;
 
 while($currStoryNum<=$numStories)
 {
@@ -36,7 +24,7 @@ while($currStoryNum<=$numStories)
 	if($readMoreNum==$currStoryNum)
 	{
 		print $result[0]."<br/>";
-		if($loggedOn==true)
+		if($_COOKIE['isLoged']=='yes')
 		{
 			print "<form>Comment: <br/><input type='text' name='contentBox' size='300' /><input type='submit' value='Submit'/></form>";
 		}

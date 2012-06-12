@@ -1,0 +1,312 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*Pop Up for Login */
+
+#popupbox{
+  margin: 0; 
+  margin-left: 40%; 
+  margin-right: 40%;
+  margin-top: -50px; 
+  padding:5px 0px 0px 10px; 
+  width: 250px; 
+  height: 150px; 
+  position: absolute; 
+  background: #CCCCCC; 
+  border: solid #000000 2px; 
+  z-index: 9; 
+  font-family: arial;
+  font-size:16px; 
+  visibility: hidden; 
+  -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+  }
+
+p.centerclose {
+	margin:0px 0px 0px 225px;
+}
+
+/*Baseline Stuff */
+
+body {
+
+background-color:#FFFFFF;
+
+}
+
+h3 {
+	font-family: 'Questrial', sans-serif;
+}
+
+h5 {
+	font-family: 'Questrial', sans-serif;	
+	color:#c3262e;
+}
+
+h6 {
+	font-family: 'Questrial', sans-serif;
+	color:#999999;
+}
+
+p {
+	font-family: 'Cardo', serif;
+}
+
+ul {
+	float;
+}
+
+a:link {
+	color:#FFFFFF;
+	text-decoration:none;
+	font-family: 'Questrial', sans-serif;
+}      
+
+a:hover {
+	color:#c3262e;
+}
+a:active {
+	color:#c3262e;
+}
+
+label {
+	font-family: 'Questrial', sans-serif;
+}
+
+input { 
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	border-radius: 5px;
+	font-family: 'Questrial', sans-serif; 
+	font-size:16px;
+}
+
+input.submit{ 
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	border-radius: 5px;
+	font-family: 'Questrial', sans-serif; 
+	font-size:16px;
+}
+
+/*Header Stuff */
+
+div#header {
+	background-color:#CCC;
+	width:100%;
+	height:105px;
+	background-image:url(../img/wood.jpg);
+	float:left;
+}
+
+div#logo {
+	float:left;	
+}
+
+div#topbuttons {
+	float:right;
+	color:#ffffff;
+	margin:15px 0px 0px 0px;
+}
+
+.button {
+   border-top: 1px solid #ffffff;
+   background: #999999;
+   background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#999999));
+   background: -webkit-linear-gradient(top, #cccccc, #999999);
+   background: -moz-linear-gradient(top, #cccccc, #999999);
+   background: -ms-linear-gradient(top, #cccccc, #999999);
+   background: -o-linear-gradient(top, #cccccc, #999999);
+   padding: 7.5px 15px;
+   margin:0px 5px 0px 5px;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color:#FFFFFF;
+   font-size: 13px;
+   font-family: 'Questrial', sans-serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+   
+.button:hover {
+   border-top-color: #c91313;
+   background: #c91313;
+   color: #FFFFFF;
+   }
+.button:active {
+   border-top-color: #961010;
+   background: #961010;
+   }
+
+
+/*Top Nav Stuff */
+
+div#newnavtop {
+	padding:0px 0px 0px 0px;
+	float:left;
+}
+
+.newnavtop li {
+	float:left;
+	width:100px;
+	padding:0px 5px 0px 0px;
+	margin:0px 5px 0px 0px;
+	border-left:solid 1px;
+}
+
+.newnavtop li#stories {
+	border-right:solid 1px;
+	width:105px;
+}
+
+.newnavtop a {
+	display:block;
+	height:30px;
+	width:100px;
+	padding:0px 0px 0px 10px;
+	font-family: 'Questrial', sans-serif;
+	font-size:20px;
+	color:#FFF;
+}
+
+.newnavtop a:hover{
+	color:#FFF;
+	background:#999;
+	/* IE10 */ 
+	background-image: -ms-linear-gradient(top, #CCCCCC 0%, #999999 100%);
+
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(top, #CCCCCC 0%, #999999 100%);
+
+	/* Opera */ 
+	background-image: -o-linear-gradient(top, #CCCCCC 0%, #999999 100%);
+
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #CCCCCC), color-stop(1, #999999));
+
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(top, #CCCCCC 0%, #999999 100%);
+
+	/* Proposed W3C Markup */ 
+	background-image: linear-gradient(top, #CCCCCC 0%, #999999 100%);
+}
+
+div#search {
+	float:right;
+	padding:1px 0px 0px 0px;	
+}
+
+div.bar {
+	float:left;
+	background-color:#c91313;
+	/* IE10 */ 
+	background-image: -ms-linear-gradient(top, #F33F3F 0%, #C91313 100%);
+
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(top, #F33F3F 0%, #C91313 100%);
+
+	/* Opera */ 
+	background-image: -o-linear-gradient(top, #F33F3F 0%, #C91313 100%);
+
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F33F3F), color-stop(1, #C91313));
+
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(top, #F33F3F 0%, #C91313 100%);
+
+	/* Proposed W3C Markup */ 
+	background-image: linear-gradient(top, #F33F3F 0%, #C91313 100%);
+	box-shadow: -1px 1px 2px #888888;
+	height:30px;
+	width:100%;
+}
+
+
+/*Content Area Stuff */
+
+div#leftnav {
+	height:300px;
+	margin:25px 0px 10px 0px;
+	padding:15px 5px 5px 5px;
+	background-color:#cccccc;	 	
+}
+
+div#main_content {
+	height:700px;
+	padding:15px 5px 0px 5px;
+	margin:25px 0px 10px 0px;
+	background-color:#FFFFFF;
+	border:2px solid;
+	border-color:#FFFFFF;
+	border-radius:25px;
+	-moz-border-radius:25px; 
+}
+
+div#right_content {
+	height:700px;
+	margin:25px 0px 10px 0px;
+	padding:15px 5px 0px 5px;
+	background-color:#cccccc;
+	
+}
+
+
+/*Footer Stuff */
+
+div.footerbar {
+	float:left;
+	background-color:#c91313;
+	/* IE10 */ 
+	background-image: -ms-linear-gradient(top, #F33F3F 0%, #C91313 100%);
+
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(top, #F33F3F 0%, #C91313 100%);
+
+	/* Opera */ 
+	background-image: -o-linear-gradient(top, #F33F3F 0%, #C91313 100%);
+
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F33F3F), color-stop(1, #C91313));
+
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(top, #F33F3F 0%, #C91313 100%);
+
+	/* Proposed W3C Markup */ 
+	background-image: linear-gradient(top, #F33F3F 0%, #C91313 100%);
+	height:10px;
+	width:100%;
+}
+
+div#footer {
+	height:75px;
+	width:100%;
+	background-image:url(../img/wood.jpg);
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	
+}
+
+#footer a:link {
+	color:#ccc;
+}
+
+#footer a:hover {
+	color:#c3262e;
+}
+
+p#footer1 {
+	padding:10px 0px 0px 430px;
+	margin:0px;
+}
+
+p#footer2 {
+	padding:0px 0px 0px 370px;
+	margin:0px;
+}
