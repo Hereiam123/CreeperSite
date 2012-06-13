@@ -1,3 +1,28 @@
+<?php
+
+
+
+function tag_cloud($tags){
+	$maxsize=35;
+	$minsize=10;
+	
+	$maxval=max(array_values($tags));
+	$minval=min(array_values($tags));
+	
+	$spread= ($maxval - $minval);
+	
+	$step= (($maxsize - $minsize) / $spread);
+	
+	foreach($tags as $key => $value){
+		$size=round($minsize +(($value - $minval) * $step));
+		echo '<a href="#" style="font-size: '.$size.'px;">'.$key.'</a> ';
+	}
+}
+
+$tags=array('Married'=>3,'Crazy'=>1,'Liar'=>3,'Douchey'=>6,'Weird Fetish'=>2,'Jealous'=>8,'Possessive'=>2,'Control Freak'=>1,'Late'=>3,'Vain'=>8,'Smelly'=>4,'Psycho'=>1,'Bossy'=>3,'Cheap'=>6,'Snob'=>2,'Clingy'=>1,'Boring'=>2);
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -5,51 +30,149 @@
 <link rel="stylesheet" type="text/css" href="css/960.css" />
 <link rel="stylesheet" type="text/css" href="css/text.css" />
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
+<link href='http://fonts.googleapis.com/css?family=Questrial|Marko+One' rel='stylesheet' type='text/css'/>
+ 
+ 
+<script language="JavaScript" type="text/javascript">
+  function login(showhide){
+    if(showhide == "show"){
+        document.getElementById('popupbox').style.visibility="visible";
+		document.getElementById('popupbox2').style.visibility="hidden"; 
+    }else if(showhide == "hide"){
+        document.getElementById('popupbox').style.visibility="hidden"; 
+    }
+  }
+  
+  function register(showhide){
+    if(showhide == "show"){
+        document.getElementById('popupbox2').style.visibility="visible";
+		document.getElementById('popupbox').style.visibility="hidden"; 
+    }else if(showhide == "hide"){
+        document.getElementById('popupbox2').style.visibility="hidden"; 
+    }
+  }
+  
+</script>   
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/search.js"></script>
+<script type="text/javascript" src="js/returnTags.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Creeperstash</title>
 </head>
 
 <body>
 
-<div class="container_12">
+<div id="header">
 
-	<div class="grid_6">
+	<div class="container_12">
 
-		<div id="logo">
+		<div class="grid_7">
         
-        <h1><a href="main.php"><img src="img/stashlogo2.png" /></a></h1>
+        	<div id="logo">
+        
+    			<h1><a href="main.php"><img src="img/logo_new3a.png" alt="creeperstash"/></a></h1>
+    			
+            </div>
+        
+        </div>
+        
+        <div class="grid_5">
+        
+        	<div id="topbuttons">
+            
+            <a class="button" href="javascript:login('show');">Login</a> <a class="button" href="javascript:register('show');">Sign Up</a>
+            
+            </div>
+                            
         
         </div>
 
 	</div>
 
-	<div class="grid_6">
-	
-    	<div id="search_container">
+</div>
+
+<div class="container_12">
+	<div class="grid_12">
+		<div id="popupbox"> 
+        	<p class="centerclose"><a href="javascript:login('hide');"><img src="img/close.png" alt="close"/></a></p>
+			<form name="login" action="loggedin.php" method="post">
+            	<fieldset>
+                <legend>
+				<label for="username">Username:</label><br />
+                <input name="username" size="14" />
+                <br />
+				<label for="password">Password:</label>
+                <br />
+                <input name="password" type="password" size="14" />
+                <br /><br />
+				<input type="submit" name="submit" value="Login" class="submit"/>
+                </legend>
+                </fieldset>                
+			</form>
+			 
+			</div>             
+	</div>
+</div>
+
+<div class="container_12">
+	<div class="grid_12">
+		<div id="popupbox2"> 
+        	<p class="centerclose"><a href="javascript:register('hide');"><img src="img/close.png" alt="close" /></a></p>
+			<form name="register" action="register.php" method="post">
+            	<fieldset>
+                <legend>
+				<label for="username">Username:</label>
+                <br />
+                <input name="username" size="14" />
+                <br />
+				<label for="password1">Password:</label><br />
+                <input name="password1" type="password" size="14" />
+                <br />
+                <label for="password2">Re-enter Password:</label>
+                <br />
+                <input name="password2" type="password" size="14" />
+                <br /><br />
+				<input type="submit" name="register" value="Sign Up" class="submit"/>
+                </legend>
+                </fieldset>                
+			</form>
+        </div>    
+	</div>
+</div>
+
+
+<div class="bar">
+
+	<div class="container_12">
+    	
+        <div class="grid_6">
         
-      		<div id="search">
-        
-        		<form name="search" action="search.php">
-        
-        		<input type="text" name="search" />
-        
-        		<input type="image" name="search_submit" value="Search our Stash" src="img/search1.png"/>
-        
-       		 	</form>
-        
+        	<div id="newnavtop">	
+            
+            	<ul class="newnavtop">
+            		<li id="home"><a href="#">Home</a></li>
+                	<li id="search"><a href="#">Search</a></li>
+                	<li id="stories"><a href="#">Stories</a></li>            
+            	</ul>
+                        
         	</div>
         
         </div>
+        
+        <div class="grid_6">
+        
+        	<div id="searchArea">
+        
+				<form onsubmit="return false" action="">
+        
+    			<input type="text" name="search" id="SearchBox"/>
+        
+    			<input type="image" src="img/search.png" id="SubmitSearch"/>
+        
+    			</form>
     
-	</div>
-
-</div>
-
-<div class="container_12">
-	
-    <div class="grid_12">
-    	
-        <div class="bar">
+    		</div>	
         
         </div>
         
@@ -58,67 +181,89 @@
 </div>
 
 <div class="container_12">
-	
-    <div class="grid_3">
 
-		<div id="left_content">
-        
-        <h3>Hello, User_Dude!</h3>
-        
-        <a href="submit_creeper.php"><img src="img/button_submitcreeper.png" /></a>
-        
-        <a href="submit_story.php"><img src="img/button_submitstory.png" /></a>
-        
-        <a href="yourstash.php"><img src="img/button_yourstash.png" /></a>
-        
-        <a href="edit_account.php"><img src="img/button_editaccount.png" /></a>
-        
-        <a href="logout.php"><img src="img/button_logout.png" /></a>               
-        
-        </div>
-
-	</div>
+	<div class="grid_3">
     
-    <div class="grid_7">
+    	<div id="leftnav">
+        
+        <h3>Hey there, Random_Name!</h3>
+		
+        <a href="#">Add Creep</a>
+        <br />
+        <a href="#">Add Story</a>
+        <br />
+        <a href="#">Your Stash</a>        
+		<br />
+        <a href="#">Signout</a>
+        </div>
+    
+    </div>	    
+    
+    <div class="grid_6">
     
 		<div id="main_content">
         
-        <h3>Placeholder Text</h3>
-                        
+        <h2>Latest Creeper Stories</h2>
         
+        
+        
+        <h5>You're not going to believe this one!</h5>
+        
+        <h6>6/2/12</h6>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis tellus non tortor sodales vitae pretium purus rutrum. Vestibulum adipiscing, mauris ac feugiat commodo, quam nisl tempor nisl, at lobortis leo nisi eu lorem. Nullam auctor, sem id egestas ullamcorper, dui ipsum dapibus felis, in consectetur nisl quam condimentum ipsum. Phasellus hendrerit placerat metus et aliquam. Etiam ante mi, adipiscing non porta ac, elementum non lectus... 
+        <a href="readmore.html" class="readmore">read more</a></p>
+                                
+        <h5>Tickle Fetish Fiend</h5>
+        
+        <h6>6/1/12</h6>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis tellus non tortor sodales vitae pretium purus rutrum. Vestibulum adipiscing, mauris ac feugiat commodo, quam nisl tempor nisl, at lobortis leo nisi eu lorem. Nullam auctor, sem id egestas ullamcorper, dui ipsum dapibus felis, in consectetur nisl quam condimentum ipsum. Phasellus hendrerit placerat metus et aliquam. Etiam ante mi, adipiscing non porta ac, elementum non lectus... 
+        <a href="readmore.html" class="readmore">read more</a></p>
+        
+        
+        <h5>Still keeps me up at night...</h5>
+        
+        <h6>6/1/12</h6>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis tellus non tortor sodales vitae pretium purus rutrum. Vestibulum adipiscing, mauris ac feugiat commodo, quam nisl...
+        <a href="readmore.html" class="readmore">read more</a></p>
+                
         </div>
 	
     </div>
     
-	<div class="grid_2">
-
-		<div id="right_content">
-        
-        <h3>Ads</h3>
-        
-        </div>
-
-	</div>
+    <div class="grid_3">
+    
+    	<div id="right_content">
+    
+    		<?php 
+				tag_cloud($tags);
+			?>
+    
+   	 		</div>
+    
+    </div>
     
 </div>
 
-<div class="container_12">
-	
-    <div class="grid_12">
+<div class="footerbar">
+
+	<div class="container_12">
     	
-        <div class="bar">
+        <div class="grid_12">
         
         </div>
         
     </div>
     
 </div>
+
+<div id="footer">
 	
 <div class="container_12">
 	
-    <div class="grid_12">
-    
-    	<div id="footer">        
+    <div class="grid_12">       
         
        	 		<p id="footer1">
                 
@@ -132,15 +277,16 @@
                 
                 <p id="footer2">
         
-        		<a href="terms.html">Terms of Service</a> |
+        		<a href="terms.html">Terms of Use</a> |
         
         		<a href="copyright.html">Copyright</a> |
         
         		<a href="privacy.html">Privacy Policy</a> |
-        
-        		<a href="trademark.html">Trademark</a> 
+         
                 
                 </p>
+                
+                </div>
         
         </div>
 	

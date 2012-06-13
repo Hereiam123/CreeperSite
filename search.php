@@ -16,7 +16,7 @@ if($getTags==0)
 	$result=mysql_query($query);
 	$row = mysql_fetch_array($result); 
 	$num_results = mysql_num_rows($result); 
-	print "<p>Click User name to get Allegation Information. </p><br/>";
+	print "<h5>Click User name to get Allegation Information. </h5><br/>";
 	
 	if($num_results<=0)
 	{
@@ -25,24 +25,22 @@ if($getTags==0)
 	else
 	{
 		mysql_data_seek($result,0);
-		print "<div id='theResults'>";
 		while($row2 = mysql_fetch_array($result))
 		{
-			print "<a name='".$row2['creepUserName']."' class='searchResult' href='#'> User Name: ".$row2['creepUserName']."</a><br/>";
+			print "<a name='".$row2['creepUserName']."' class='searchResult'> User Name: ".$row2['creepUserName']."</a><br/>";
 		}
-		print "</div>";
 	}
 	mysql_close();
 }
 
 else if($getTags==1)
 {
-	$query="SELECT * FROM creeperData WHERE creepUserName LIKE '%$userClick%'";	
+	$query="SELECT * FROM creeperData WHERE creepUserName = '$userClick'";	
 	$result=mysql_query($query);
 	while($row = mysql_fetch_array($result))
 	{
-		print "<p>User Name:" .$userClick."<br/>";
-		print $userClick."'s Allegations: ".$row['Tag(s)']."</p>";
+		print "<p>User Name: " .$userClick."<br/>";
+		print "Allegations against ".$userClick." : ".$row['Tag(s)']."</p>";
 	}
 	mysql_close();
 }

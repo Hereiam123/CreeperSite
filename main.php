@@ -57,6 +57,7 @@ $tags=array('Married'=>3,'Crazy'=>1,'Liar'=>3,'Douchey'=>6,'Weird Fetish'=>2,'Je
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/search.js"></script>
 <script type="text/javascript" src="js/returnTags.js"></script>
+<script type="text/javascript" src="js/storyLoad.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Creeperstash</title>
 </head>
@@ -199,31 +200,6 @@ Sign up for an account today and share your dating horror stories, and add your 
     
 		<div id="main_content">
         
-        <h2>Latest Creeper Stories</h2>
-        
-        
-        
-        <h5>You're not going to believe this one!</h5>
-        
-        <h6>6/2/12</h6>
-        
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis tellus non tortor sodales vitae pretium purus rutrum. Vestibulum adipiscing, mauris ac feugiat commodo, quam nisl tempor nisl, at lobortis leo nisi eu lorem. Nullam auctor, sem id egestas ullamcorper, dui ipsum dapibus felis, in consectetur nisl quam condimentum ipsum. Phasellus hendrerit placerat metus et aliquam. Etiam ante mi, adipiscing non porta ac, elementum non lectus... 
-        <a href="readmore.html" class="readmore">read more</a></p>
-                                
-        <h5>Tickle Fetish Fiend</h5>
-        
-        <h6>6/1/12</h6>
-        
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis tellus non tortor sodales vitae pretium purus rutrum. Vestibulum adipiscing, mauris ac feugiat commodo, quam nisl tempor nisl, at lobortis leo nisi eu lorem. Nullam auctor, sem id egestas ullamcorper, dui ipsum dapibus felis, in consectetur nisl quam condimentum ipsum. Phasellus hendrerit placerat metus et aliquam. Etiam ante mi, adipiscing non porta ac, elementum non lectus... 
-        <a href="readmore.html" class="readmore">read more</a></p>
-        
-        
-        <h5>Still keeps me up at night...</h5>
-        
-        <h6>6/1/12</h6>
-        
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis tellus non tortor sodales vitae pretium purus rutrum. Vestibulum adipiscing, mauris ac feugiat commodo, quam nisl...
-        <a href="readmore.html" class="readmore">read more</a></p>
                 
         </div>
 	

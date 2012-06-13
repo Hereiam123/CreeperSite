@@ -1,11 +1,10 @@
 $(document).ready(function()
 {
-	$("a").click(function(event)
+	$(".searchResult").live('click',function(event)
 	{
 		event.preventDefault();
-		//var user = $(this).attr("name");
-		alert("Clicked");
-		/*$.ajax({
+		var user = $(this).attr("name");
+		$.ajax({
 			type: 'GET',
 			url: 'search.php',
 			data: 'userName=' + user + '&getTags=1',
@@ -13,7 +12,7 @@ $(document).ready(function()
 			success: function(response) {
 				$('#main_content').html(response);
 			}
-		});*/	
+		});	
 	});
 }
 );
