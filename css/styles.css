@@ -198,9 +198,8 @@ div#newnavtop {
 	padding:0px 5px 0px 0px;
 	margin:0px 5px 0px 0px;
 	border-left:solid 1px #961010;
-	
-
 }
+
 
 .newnavtop li#stories {
 	border-right:solid 1px #961010;
@@ -262,6 +261,11 @@ background-image: linear-gradient(to bottom, #961010 0%, #790C0C 100%);
 div#searchArea {
 	float:right;
 	padding:2px 0px 0px 0px;	
+}
+
+div#searchArea2 {
+	float:left;
+	padding:10px 10px 10px 10px;	
 }
 
 div.bar {

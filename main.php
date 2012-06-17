@@ -55,9 +55,7 @@ $tags=array('Married'=>3,'Crazy'=>1,'Liar'=>3,'Douchey'=>6,'Weird Fetish'=>2,'Je
 </script>   
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/search.js"></script>
-<script type="text/javascript" src="js/returnTags.js"></script>
-<script type="text/javascript" src="js/storyLoad.js"></script>
+<script type="text/javascript" src="js/jqueryScripts.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Creeperstash</title>
 </head>
@@ -152,9 +150,9 @@ $tags=array('Married'=>3,'Crazy'=>1,'Liar'=>3,'Douchey'=>6,'Weird Fetish'=>2,'Je
         	<div id="newnavtop">	
             
             	<ul class="newnavtop">
-            		<li id="home"><a href="#">Home</a></li>
+            		<li id="home"><a href="http://jonfriskics.com/~4104e/main.php">Home</a></li>
                 	<li id="search"><a href="#">Search</a></li>
-                	<li id="stories"><a href="#">Stories</a></li>            
+                	<li id="stories"><a href="#">Stories</a></li> 					
             	</ul>
                         
         	</div>

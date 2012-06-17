@@ -55,8 +55,7 @@ $tags=array('Married'=>3,'Crazy'=>1,'Liar'=>3,'Douchey'=>6,'Weird Fetish'=>2,'Je
 </script>   
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/search.js"></script>
-<script type="text/javascript" src="js/returnTags.js"></script>
+<script type="text/javascript" src="js/jqueryScripts.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Creeperstash</title>
 </head>
@@ -188,7 +187,7 @@ $tags=array('Married'=>3,'Crazy'=>1,'Liar'=>3,'Douchey'=>6,'Weird Fetish'=>2,'Je
         
         <h3>Hey there, Random_Name!</h3>
 		
-        <a href="#">Add Creep</a>
+        <a href="#" id="submitCreeperButton">Add Creep</a>
         <br />
         <a href="#">Add Story</a>
         <br />
